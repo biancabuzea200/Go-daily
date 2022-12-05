@@ -1,46 +1,41 @@
-package main	
+package main
 
 import "fmt"
 
-var cars []car
-
-type car struct {
-	color string;
-	price int;
+type car struct{
+   color string;
+   price int;
 }
+
+var cars [] car
 
 func addCar(c car){
-	cars = append(cars, c)
+   cars = append (cars, c)
 }
 
-func removeCar(index int) (carsupdated []car){
-	carsupdated = append(cars[:index], cars[index+1:]...)
-	return carsupdated
-	
+func removeCar(index int) (updated[] car){
+   updated = append (cars[:index], cars[index+1:]...) 
+   return updated
 }
 
 func main() {
-
-   carObj1 :=car {color: "red", price:100}
-   carObj2 :=car{color:"blue", price: 200}
-   carObj3 :=car{color: "white", price:300}
-
-   addCar(carObj1)
-   addCar(carObj2)
-   addCar(carObj3)
-
-  
-
-   fmt.Println("print all cars: ")
-   for _ , aCar := range cars{
-      fmt.Println(aCar)
-   }
-   cars = removeCar(1)
-   fmt.Println("print after removal")
-   for _ , aCar := range cars{
-      fmt.Println(aCar)
-   }
+   objCar1  :=car{"green", 100}
+   objCar2 :=car{"red", 200}
+   objCar3 :=car {"blue", 300}
+      addCar(objCar1)
+      addCar(objCar2)
+      addCar(objCar3)
+      
+      fmt.Println("print all cars: ")
+      for _, aCar := range cars{
+         fmt.Println(aCar)
+      }
+      cars = removeCar(1)
+      fmt.Println("cars after removal:")
+      for _, aCar := range cars{
+         fmt.Println(aCar)
+      }
+ }
+ 
 
 
-	
-}
